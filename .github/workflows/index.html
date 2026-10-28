@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ontdek onze schoonheidsbehandelingen en vraag eenvoudig een afspraak aan.">
+    <title>LOPEA-PEDI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo-area">
+            <p><img src="LOGO KLEIN.jpg" style="width: 30px; height: auto;"> LOPEA-PEDI</p>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle"
+                aria-label="Menu openen" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="navigation" id="navigation">
+            <a href="#home">Home</a>
+            <a href="#behandelingen">Behandelingen</a>
+            <a href="#over-mij">Over mij</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <img src="LOGO.jpg" alt="LOGO" style="width: 100%; height: auto;">
+        </section>
+
+        <!-- TREATMENTS -->
+        <section class="section treatments-section" id="behandelingen">
+            <div class="section-heading">
+                <p class="eyebrow">WAT IK AANBIED</p>
+                <h2>Mijn behandelingen</h2>
+                <p>
+                    Ontdek het aanbod en kies de behandeling
+                    die het beste bij jou past.
+                </p>
+            </div>
+
+            <div class="treatment-grid" id="treatment-grid">
+                <!-- Behandelingen worden geladen via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section about-section" id="over-mij">
+            <table>
+                <tr>
+                    <td>
+                        <div class="about-content">
+                            <p class="eyebrow">Wie ben ik?</p>
+                            <h2>Over mij</h2>
+    
+                            <p id="about-text">
+                                Welkom bij mijn beautystudio! Ik vind het belangrijk
+                                dat iedereen zich welkom voelt en kan genieten van
+                                een persoonlijke behandeling in een ontspannen sfeer.
+                            </p>
+    
+                            <p id="about-extra">
+                                Heb je vragen over een behandeling? Stuur me gerust
+                                een berichtje. Ik help je graag verder.
+                            </p>
+    
+                            <a href="#contact" class="button button-outline">
+                                Neem contact op
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <img src="LOBKE-FOTO.jpg" alt="Foto Lobke" style="width: 75%; height: auto;">
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- APPOINTMENT REQUEST -->
+        <section class="section contact-section" id="contact">
+        
+            <div class="section-heading">
+                <p class="eyebrow">JOUW MOMENT</p>
+            
+                <h2>Vraag een afspraak aan</h2>
+            
+                <p>
+                    Mijn werkuren zijn variabel. Vul het formulier in
+                    en ik neem via e-mail contact met je op om een
+                    geschikte datum en tijd af te spreken.
+                </p>
+            </div>
+        
+            <form
+                id="appointment-form"
+                class="appointment-form"
+                action="https://formsubmit.co/YOUR_EMAIL@example.com"
+                method="POST"
+            >
+        
+                <!-- EMAIL SETTINGS -->
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="Nieuwe afspraakaanvraag"
+                >
+        
+                <input
+                    type="hidden"
+                    name="_template"
+                    value="table"
+                >
+        
+                <!-- CUSTOMER NAME AND EMAIL -->
+                <div class="form-row">
+                
+                    <div class="form-group">
+                        <label for="customer-name">Naam *</label>
+                    
+                        <input
+                            type="text"
+                            id="customer-name"
+                            name="Naam"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="customer-email">E-mailadres *</label>
+                    
+                        <input
+                            type="email"
+                            id="customer-email"
+                            name="E-mailadres"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+                
+                </div>
+            
+                <!-- PHONE NUMBER -->
+                <div class="form-group">
+                    <label for="customer-phone">
+                        Telefoonnummer
+                    </label>
+                
+                    <input
+                        type="tel"
+                        id="customer-phone"
+                        name="Telefoonnummer"
+                        autocomplete="tel"
+                    >
+                </div>
+            
+                <!-- ADDRESS -->
+                <div class="form-group">
+                    <label for="customer-address">Adres *</label>
+                
+                    <input
+                        type="text"
+                        id="customer-address"
+                        name="Adres"
+                        autocomplete="street-address"
+                        placeholder="Straat, huisnummer en gemeente"
+                        required
+                    >
+                </div>
+            
+                <!-- MULTIPLE TREATMENT SELECTION -->
+                <div class="form-group treatment-checkboxes">
+                    <legend>Gewenste behandeling *</legend>
+                
+                    <div id="treatment-options">
+                        <!-- Checkboxes are added by script.js -->
+                    </div>
+                </div>
+            
+                <!-- PREFERRED DATE AND TIME -->
+                <div class="form-row">
+                
+                    <div class="form-group">
+                        <label for="preferred-date">
+                            Voorkeursdatum
+                        </label>
+                    
+                        <input
+                            type="date"
+                            id="preferred-date"
+                            name="Voorkeursdatum"
+                        >
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="preferred-time">
+                            Voorkeurstijd
+                        </label>
+                    
+                        <select
+                            id="preferred-time"
+                            name="Voorkeurstijd"
+                        >
+                            <option value="">Geen voorkeur</option>
+                            <option value="Voormiddag">Voormiddag</option>
+                            <option value="Namiddag">Namiddag</option>
+                            <option value="Avond">Avond</option>
+                        </select>
+                    </div>
+                
+                </div>
+            
+                <!-- ADDITIONAL INFORMATION -->
+                <div class="form-group">
+                    <label for="customer-message">
+                        Extra informatie of vragen
+                    </label>
+                
+                    <textarea
+                        id="customer-message"
+                        name="Extra informatie"
+                        rows="4"
+                        placeholder="Vertel me gerust wat meer..."
+                    ></textarea>
+                </div>
+            
+                <!-- FORM NOTICE -->
+                <p class="form-note">
+                    Je aanvraag is nog geen bevestigde afspraak.
+                    Ik neem contact met je op om een moment af te spreken.
+                </p>
+            
+                <!-- SUBMIT BUTTON -->
+                <button
+                    type="submit"
+                    class="button button-primary submit-button"
+                >
+                    Verstuur aanvraag
+                </button>
+            
+                <p
+                    id="form-status"
+                    class="form-status"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+            
+            </form>
+        
+        </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-main">
+        
+            <!-- BEDRIJFSINFORMATIE -->
+            <div class="footer-about">
+                <h2 id="footer-business-name">LOPEA-PEDI</h2>
+                <p>
+                    Persoonlijke voetverzorging aan huis,
+                    met aandacht voor jouw voeten.
+                    <br>
+                    <br>
+                    <br>
+                    <br
+                    BTW-nummer: BE1043095339
+                </p>
+            </div>
+        
+            <!-- CONTACTGEGEVENS -->
+            <div class="footer-contact">
+                <h3>Contact</h3>
+            
+                <a id="footer-email"
+                   href="mailto:lobkegunst08@gmail.com">
+                    lobkegunst08@gmail.com
+                </a>
+            
+                <a id="footer-phone"
+                   href="tel:+32470583743">
+                    +32 470 58 37 43
+                </a>
+            </div>
+        
+            <!-- SOCIALE MEDIA -->
+            <div class="footer-socials">
+                <h3>Volg mij</h3>
+            
+                <a id="instagram-link"
+                   href="https://www.instagram.com/lopea_pedi/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Instagram
+                </a>
+            
+                <a id="facebook-link"
+                   href="https://www.facebook.com/share/1C8t9GfwR9/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Facebook
+                </a>
+            </div>
+        
+        </div>
+    
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            <p>
+                © <span id="current-year"></span>
+                <span id="copyright-name">LOPEA-PEDI</span>.
+                Alle rechten voorbehouden.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
