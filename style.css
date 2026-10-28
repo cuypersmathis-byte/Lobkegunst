@@ -1,0 +1,637 @@
+/* =========================
+   COLORS AND GENERAL SETTINGS
+========================= */
+
+:root {
+    --purple: #7950a1;
+    --purple-dark: #50316e;
+    --purple-light: #eee6f5;
+    --purple-pale: #faf7fc;
+    --white: #ffffff;
+    --text: #332b38;
+    --muted: #766d7c;
+    --border: #e5dce9;
+    --radius: 18px;
+    --shadow: 0 12px 35px rgba(72, 44, 91, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin-inline: auto;
+}
+
+/* =========================
+   HEADER AND NAVIGATION
+========================= */
+
+.header {
+    min-height: 82px;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-area img {
+    max-width: 150px;
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.logo-placeholder {
+    color: var(--purple);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation a {
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+    color: var(--purple);
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: var(--purple-dark);
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 25px;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    color: var(--white);
+    background: var(--purple);
+}
+
+.button-primary:hover {
+    background: var(--purple-dark);
+}
+
+.button-outline {
+    color: var(--purple-dark);
+    border-color: var(--purple);
+    background: transparent;
+}
+
+.button-outline:hover {
+    background: var(--purple-light);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 490px;
+    padding: 100px 6% 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(
+        180deg,
+        var(--purple-pale),
+        var(--white)
+    );
+}
+
+.eyebrow {
+    color: var(--purple);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 15px 0;
+    color: var(--purple-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3rem, 8vw, 6.2rem);
+    font-weight: 500;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+}
+
+.hero-description {
+    max-width: 570px;
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 1.12rem;
+}
+
+.hero-note {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section {
+    padding: 95px 6%;
+}
+
+.section-heading {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading h2,
+.about-content h2 {
+    margin: 10px 0 15px;
+    color: var(--purple-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.1rem, 5vw, 3.3rem);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.section-heading > p:last-child {
+    color: var(--muted);
+}
+
+/* =========================
+   TREATMENT CARDS
+========================= */
+
+.treatments-section {
+    background: var(--white);
+}
+
+.treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.treatment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.treatment-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+}
+
+.treatment-number {
+    margin-bottom: 16px;
+    color: var(--purple);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.treatment-card h3 {
+    margin-bottom: 10px;
+    color: var(--purple-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.treatment-card p {
+    flex: 1;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.treatment-price {
+    color: var(--purple);
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.treatment-duration {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about-section {
+    background: var(--purple-pale);
+}
+
+.about-content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content > p:not(.eyebrow) {
+    margin-bottom: 18px;
+    color: var(--muted);
+}
+
+.about-content .button {
+    margin-top: 15px;
+}
+
+/* =========================
+   APPOINTMENT FORM
+========================= */
+
+.contact-section {
+    background: var(--white);
+}
+
+.appointment-form {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: var(--purple-dark);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(121, 80, 161, 0.12);
+}
+
+.form-note {
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.submit-button {
+    width: 100%;
+}
+
+.form-status {
+    margin-top: 15px;
+    color: var(--purple-dark);
+    font-size: 0.95rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 55px 6% 0;
+    color: var(--white);
+    background: var(--purple-dark);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.footer h2 {
+    margin-bottom: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.footer h3 {
+    margin-bottom: 14px;
+    font-size: 1rem;
+}
+
+.footer p,
+.footer a {
+    color: #e8dff0;
+    font-size: 0.92rem;
+}
+
+.footer-contact,
+.footer-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.footer a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 800px) {
+    .navigation {
+        gap: 17px;
+    }
+
+    .treatment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-main > div:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        min-height: 72px;
+        padding: 12px 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 5% 20px;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .navigation.open {
+        display: flex;
+    }
+
+    .navigation a {
+        padding: 12px 0;
+    }
+
+    .hero {
+        min-height: 420px;
+        padding: 75px 6%;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 70px 5%;
+    }
+
+    .treatment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .treatment-card {
+        padding: 25px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .appointment-form {
+        padding: 24px 18px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-main > div:first-child {
+        grid-column: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+td {
+    padding: 20px 40px;
+    vertical-align: middle;
+}
+
+
+
+.treatment-checkboxes legend {
+    border: none;
+    padding: 0;
+}
+
+#treatment-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    gap: 0.75rem;
+    align-items: start;
+    border: none !important;
+    outline: none;
+    box-shadow: none;
+}
+
+.treatment-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.treatment-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: #80604f;
+    border: none !important;
+    outline: none;
+    box-shadow: none;
+}
+
+.treatment-checkbox span {
+    cursor: pointer;
+    border: none !important;
+    outline: none;
+    box-shadow: none;
+}
+
+.treatment-checkbox:has(input:checked) {
+    background: #f8f2ee;
+    border: none !important;
+    outline: none;
+    box-shadow: none;
+}
+
+@media (max-width: 480px) {
+    #treatment-options {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+        grid-template-rows: auto;
+        border: none !important;
+        outline: none;
+        box-shadow: none;
+    }
+}
